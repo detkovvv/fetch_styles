@@ -21,6 +21,8 @@ const corsHeaders = {
     headers: 'origin, content-type, accept'
 };
 
+const contentType = {'Content-Type': 'application/json'};
+
 // Функция для обработки запроса на /api/button/
 const handleButtonRequest = (req, res) => {
     if (req.method === 'GET') {
@@ -38,11 +40,11 @@ const handleButtonRequest = (req, res) => {
 
             setCorsHeaders(res);
 
-            res.writeHead(200, {'Content-Type': 'application/json'});
+            res.writeHead(200, contentType);
             res.end(responseData);
         }, getRandomInt(1000, 5000)); // Случайная задержка от 1 до 5 секунд
     } else {
-        res.writeHead(405, {'Content-Type': 'application/json'});
+        res.writeHead(405, contentType);
         res.end(errors.methodNotAllowed);
     }
 }
@@ -56,11 +58,11 @@ const handleRandomRequest = (req, res) => {
 
             setCorsHeaders(res);
 
-            res.writeHead(200, {'Content-Type': 'application/json'});
+            res.writeHead(200, contentType);
             res.end(responseData);
         }, getRandomInt(1000, 3000)); // Случайная задержка от 1 до 3 секунд
     } else {
-        res.writeHead(405, {'Content-Type': 'application/json'});
+        res.writeHead(405, contentType);
         res.end(errors.methodNotAllowed);
     }
 }
@@ -79,7 +81,7 @@ const server = http.createServer((req, res) => {
     } else if (req.url === '/api/random/') {
         handleRandomRequest(req, res);
     } else {
-        res.writeHead(404, {'Content-Type': 'application/json'});
+        res.writeHead(404, contentType);
         res.end(errors.notFound);
     }
 });

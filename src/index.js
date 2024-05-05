@@ -17,13 +17,10 @@ fetchButton.addEventListener('click', () => {
 
     // Отправка запроса на сервер
     fetch(`${serverUrl}/api/button/`)
+
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
+            const data = response.json();
+
             // Обработка полученного ответа
             responseForm.textContent = data.form;
             responseColor.textContent = data.color;
@@ -47,12 +44,7 @@ fetchButton.addEventListener('click', () => {
 setInterval(() => {
     fetch(`${serverUrl}/api/random/`)
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
+            const data = response.json();
             // Обработка полученного ответа
             randomData.textContent = data.answer;
         })
