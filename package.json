@@ -1,0 +1,12 @@
+{
+  "author": "Vasiliy Detkov",
+  "name": "fetch_styles",
+  "homepage": "",
+  "version": "1.0.0",
+  "description": "test application for queries to local server",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
