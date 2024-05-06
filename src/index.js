@@ -1,4 +1,5 @@
 const config = require('./services/api.cfg');
+// import config from './services/api.cfg'
 
 // Получаем DOM элементы
 const fetchButton = document.getElementById('fetchButton');
