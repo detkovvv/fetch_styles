@@ -60,7 +60,7 @@ const handleRandomRequest = (req, res) => {
 
             res.writeHead(200, contentType);
             res.end(responseData);
-        }, getRandomInt(1000, 3000)); // Случайная задержка от 1 до 3 секунд
+        }, 1000);
     } else {
         res.writeHead(405, contentType);
         res.end(errors.methodNotAllowed);
@@ -76,9 +76,9 @@ const setCorsHeaders = (res) => {
 
 // Создание HTTP-сервера
 const server = http.createServer((req, res) => {
-    if (req.url === '/api/button/') {
+    if (req.url === '/api/button') {
         handleButtonRequest(req, res);
-    } else if (req.url === '/api/random/') {
+    } else if (req.url === '/api/random') {
         handleRandomRequest(req, res);
     } else {
         res.writeHead(404, contentType);
