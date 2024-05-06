@@ -4,8 +4,8 @@
   "homepage": "",
   "version": "1.0.0",
   "description": "test application for queries to local server",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node src/server.js"
   }
 }

@@ -17,13 +17,8 @@ const randomColor = styleClasses.color[randomIndex(styleClasses.color.length)];
 fetchButton.className = `button ${randomForm}`;
 fetchButton.style.backgroundColor = randomColor;
 
-fetch('src/services/api.cfg')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
+fetch('src/api.cfg')
+    .then(response =>  response.json())
     .then(config => {
         // Присваиваем адрес запроса
         const serverUrl = `${config.server}:${config.port}`;

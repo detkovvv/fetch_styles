@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 
 // Чтение конфигурационного файла
-const config = JSON.parse(fs.readFileSync('./src/services/api.cfg', 'utf8'));
+const config = JSON.parse(fs.readFileSync('./src/api.cfg', 'utf8'));
 
 // Функция для генерации случайного числа в заданном диапазоне
 const getRandomInt = (min, max) => {
