@@ -60,7 +60,7 @@ const handleRandomRequest = (req, res) => {
 
             res.writeHead(200, contentType);
             res.end(responseData);
-        }, getRandomInt(0, 4000));
+        }, getRandomInt(0, 2000));
     } else {
         res.writeHead(405, contentType);
         res.end(errors.methodNotAllowed);
