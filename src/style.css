@@ -9,8 +9,6 @@ body {
 }
 
 .button {
-    width: 80px;
-    height: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,9 +16,7 @@ body {
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    background-color: blue;
     border: none;
-    border-radius: 10px;
 }
 .button:hover{
     opacity: 0.8;

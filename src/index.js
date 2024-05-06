@@ -6,6 +6,19 @@ const responseForm = document.getElementById('responseForm');
 const responseColor = document.getElementById('responseColor');
 const randomData = document.getElementById('randomData');
 
+// Задаем изначальный случайный стиль кнопке
+const styleClasses = {
+    form: ['triangle', 'circle', 'square', 'square', 'rectangle'],
+    color: ['red', 'orange', 'yellow', 'green', 'cian', 'blue', 'violet']
+};
+
+const randomIndex = Math.floor(Math.random() * styleClasses.length);
+const randomForm = styleClasses.form[randomIndex];
+const randomColor = styleClasses.color[randomIndex];
+fetchButton.className = `button ${randomForm}`;
+fetchButton.style.backgroundColor = randomColor;
+
+
 // Присваиваем адрес запроса
 const serverUrl = `${config.server}:${config.port}`;
 
