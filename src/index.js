@@ -44,11 +44,11 @@ fetch('src/api.cfg')
                 .catch(error => {
                     // Вывод ошибки, если запрос не удался
                     if (error.name === 'TimeoutError') {
-                        console.log('Timeout', error);
+                        console.log('Превышен интервал ожидания получения ответа', error);
                         responseForm.textContent = 'Timeout error';
                         responseColor.textContent = 'Timeout error';
                     } else {
-                        console.error('There was a problem with the fetch operation:', error);
+                        console.error('Проблема с операцией получения:', error);
                         responseForm.textContent = 'Fetch error';
                         responseColor.textContent = 'Fetch error';
                     }
@@ -69,10 +69,10 @@ fetch('src/api.cfg')
                 })
                 .catch(error => {
                     if (error.name === 'TimeoutError') {
-                        console.log('Timeout', error);
+                        console.log('Превышен интервал ожидания получения ответа', error);
                         randomData.textContent = 'Timeout error';
                     } else {
-                        console.error('There was a problem with the fetch operation:', error);
+                        console.error('Проблема с операцией получения:', error);
                         randomData.textContent = 'Fetch error';
                     }
                 });
@@ -80,5 +80,5 @@ fetch('src/api.cfg')
 
     })
     .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
+        console.error('Проблема с операцией получения:', error);
     });
