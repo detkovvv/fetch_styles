@@ -44,7 +44,7 @@ fetch('src/api.cfg')
                 .catch(error => {
                     // Вывод ошибки, если запрос не удался
                     if (error.name === 'TimeoutError') {
-                        console.log('Превышен интервал ожидания получения ответа', error);
+                        console.log('Превышен интервал ожидания ответа', error);
                         responseForm.textContent = 'Timeout error';
                         responseColor.textContent = 'Timeout error';
                     } else {
@@ -69,7 +69,7 @@ fetch('src/api.cfg')
                 })
                 .catch(error => {
                     if (error.name === 'TimeoutError') {
-                        console.log('Превышен интервал ожидания получения ответа', error);
+                        console.log('Превышен интервал ожидания ответа', error);
                         randomData.textContent = 'Timeout error';
                     } else {
                         console.error('Проблема с операцией получения:', error);
