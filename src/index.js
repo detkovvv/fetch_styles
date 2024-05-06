@@ -30,7 +30,7 @@ fetchButton.addEventListener('click', () => {
     fetchButton.style.backgroundColor = 'grey';
 
     // Отправка запроса на сервер
-    fetch(`${serverUrl}/api/button/`)
+    fetch(`${serverUrl}/api/button/`, {signal: AbortSignal.timeout(5000)})
 
         .then(response => {
             const data = response.json();
@@ -44,9 +44,14 @@ fetchButton.addEventListener('click', () => {
         })
         .catch(error => {
             // Вывод ошибки, если запрос не удался
+            if(error.name === 'TimeError'){
+                console.log('Timeout', error);
+                responseForm.textContent = 'Timeout error';
+                responseColor.textContent = 'Timeout error';
+            }
             console.error('There was a problem with the fetch operation:', error);
-            responseForm.textContent = 'Error';
-            responseColor.textContent = 'Error';
+            responseForm.textContent = 'Fetch error';
+            responseColor.textContent = 'Fetch error';
         })
         .finally(() => {
             // Восстанавливаем кнопку после завершения запроса
@@ -56,13 +61,17 @@ fetchButton.addEventListener('click', () => {
 
 // Обновление третьего поля каждую секунду
 setInterval(() => {
-    fetch(`${serverUrl}/api/random/`)
+    fetch(`${serverUrl}/api/random/`,{signal: AbortSignal.timeout(3000)})
         .then(response => {
             const data = response.json();
             // Обработка полученного ответа
             randomData.textContent = data.answer;
         })
         .catch(error => {
+            if(error.name === 'TimeError'){
+                console.log('Timeout', error);
+                randomData.textContent = 'Timeout error';
+            }
             // Вывод ошибки, если запрос не удался
             console.error('There was a problem with the fetch operation:', error);
             randomData.textContent = 'Error';

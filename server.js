@@ -42,7 +42,7 @@ const handleButtonRequest = (req, res) => {
 
             res.writeHead(200, contentType);
             res.end(responseData);
-        }, getRandomInt(1000, 5000)); // Случайная задержка от 1 до 5 секунд
+        }, getRandomInt(1000, 7000)); // Случайная задержка от 1 до 7 секунд
     } else {
         res.writeHead(405, contentType);
         res.end(errors.methodNotAllowed);
