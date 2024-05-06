@@ -12,9 +12,9 @@ const styleClasses = {
     color: ['red', 'orange', 'yellow', 'green', 'cian', 'blue', 'violet']
 };
 
-const randomIndex = Math.floor(Math.random() * styleClasses.length);
-const randomForm = styleClasses.form[randomIndex];
-const randomColor = styleClasses.color[randomIndex];
+const randomIndex = (param) => Math.floor(Math.random() * param);
+const randomForm = styleClasses.form[randomIndex(styleClasses.form.length)];
+const randomColor = styleClasses.color[randomIndex(styleClasses.color.length)];
 fetchButton.className = `button ${randomForm}`;
 fetchButton.style.backgroundColor = randomColor;
 
