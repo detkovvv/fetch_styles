@@ -27,22 +27,20 @@ const contentType = {'Content-Type': 'application/json'};
 const handleButtonRequest = (req, res) => {
     if (req.method === 'GET') {
 
-        // Моделируем задержку сервера
-        setTimeout(() => {
-            const forms = ['square', 'rectangle', 'triangle', 'circle'];
-            const colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'violet'];
+        const forms = ['square', 'rectangle', 'triangle', 'circle'];
+        const colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'violet'];
 
-            // Генерируем случайную форму и цвет
-            const randomForm = forms[getRandomInt(0, forms.length - 1)];
-            const randomColor = colors[getRandomInt(0, colors.length - 1)];
+        // Генерируем случайную форму и цвет
+        const randomForm = forms[getRandomInt(0, forms.length - 1)];
+        const randomColor = colors[getRandomInt(0, colors.length - 1)];
 
-            const responseData = JSON.stringify({form: randomForm, color: randomColor});
+        const responseData = JSON.stringify({form: randomForm, color: randomColor});
 
-            setCorsHeaders(res);
+        setCorsHeaders(res);
 
-            res.writeHead(200, contentType);
-            res.end(responseData);
-        }, getRandomInt(1000, 7000)); // Случайная задержка от 1 до 7 секунд
+        res.writeHead(200, contentType);
+        res.end(responseData);
+
     } else {
         res.writeHead(405, contentType);
         res.end(errors.methodNotAllowed);
@@ -52,15 +50,14 @@ const handleButtonRequest = (req, res) => {
 // Функция для обработки запроса на /api/random/
 const handleRandomRequest = (req, res) => {
     if (req.method === 'GET') {
-        // Моделируем задержку сервера
-        setTimeout(() => {
-            const responseData = JSON.stringify({answer: getRandomInt(1, 100)});
 
-            setCorsHeaders(res);
+        const responseData = JSON.stringify({answer: getRandomInt(1, 100)});
 
-            res.writeHead(200, contentType);
-            res.end(responseData);
-        }, getRandomInt(0, 2000));
+        setCorsHeaders(res);
+
+        res.writeHead(200, contentType);
+        res.end(responseData);
+
     } else {
         res.writeHead(405, contentType);
         res.end(errors.methodNotAllowed);

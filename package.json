@@ -1,7 +1,7 @@
 {
   "author": "Vasiliy Detkov",
   "name": "fetch_styles",
-  "homepage": "",
+  "homepage": "http://localhost:3000/api",
   "version": "1.0.0",
   "description": "test application for queries to local server",
   "main": "src/server.js",
