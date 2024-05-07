@@ -17,10 +17,16 @@ const randomColor = styleClasses.color[randomIndex(styleClasses.color.length)];
 fetchButton.className = `button ${randomForm}`;
 fetchButton.style.backgroundColor = randomColor;
 
-const environment = "remote"
+const environment = "local"
 
-fetch('src/api.cfg')
-    .then(response =>  response.json())
+fetch('src/api.cfg', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+    }
+})
+    .then(response => response.json())
     .then(config => {
 
 // Присваиваем адрес запроса
