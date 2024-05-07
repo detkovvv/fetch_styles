@@ -19,13 +19,7 @@ fetchButton.style.backgroundColor = randomColor;
 
 const environment = "local"
 
-fetch('src/api.cfg', {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-    }
-})
+fetch('src/api.cfg')
     .then(response => response.json())
     .then(config => {
 

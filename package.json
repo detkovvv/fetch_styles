@@ -8,5 +8,8 @@
   "scripts": {
     "start:web": "npm install http-server && http-server",
     "start:server": "node src/server.js"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
   }
 }
