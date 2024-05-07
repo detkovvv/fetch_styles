@@ -84,6 +84,6 @@ const server = http.createServer((req, res) => {
 });
 
 // Слушаем порт из конфигурации
-server.listen(config.port, () => {
-    console.log(`Server is running on port ${config.port}`);
+server.listen(config.localServer.port, () => {
+    console.log(`Server is running on port ${config.localServer.port}`);
 });

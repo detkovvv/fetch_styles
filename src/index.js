@@ -17,11 +17,14 @@ const randomColor = styleClasses.color[randomIndex(styleClasses.color.length)];
 fetchButton.className = `button ${randomForm}`;
 fetchButton.style.backgroundColor = randomColor;
 
+const environment = "remote"
+
 fetch('src/api.cfg')
     .then(response =>  response.json())
     .then(config => {
-        // Присваиваем адрес запроса
-        const serverUrl = `${config.server}:${config.port}`;
+
+// Присваиваем адрес запроса
+        const serverUrl = environment === "local" ? `${config.localServer.server}:${config.localServer.port}` : config.remoteServer;
 
 // Отправка запроса на сервер при нажатии кнопки
         fetchButton.addEventListener('click', () => {
